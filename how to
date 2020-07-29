@@ -1,0 +1,338 @@
+1º PRIMEIRO PASSO- /* Global Styles */
+
+MONTAR ESQUELETO DO HTML E CSS.
+
+
+HTML OS META DADOS E TITLE E NO CSS OS GLOBAL STYLES,
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+html{
+    font-size:62.5%;
+    --header1: calc(2rem+1vw); = VARIAVEIS SENDO SETTADAS
+    --header2: calc(2rem+1vw); 
+    --header3: calc(2rem+1vw); 
+    --header4: calc(2rem+1vw); 
+    --text: calc(1.5rem+1vw);
+    --big: calc (2.4rem+1vw);
+    --special-color:#906272
+    --background-color:4414141;
+    --gray-text:#525252;
+
+}
+
+h1{
+    font-size: var(--header1);= CHAMADA DE VARIAVEL HEADER 1  
+li,
+button,
+label,
+input,
+p{
+    font-size: var(--text); CHAMADA DE VARIAVEL HEADER 1  
+}
+h2{
+     font-size: var(--header2);CHAMADA DE VARIAVEL HEADER 2  
+}
+h3{
+     font-size: var(--header3);CHAMADA DE VARIAVEL HEADER 3 
+}
+h5{
+     font-size: var(--header5);CHAMADA DE VARIAVEL HEADER 5  
+}
+a{
+    text-decoration: none;
+
+}
+ul{
+    list-style:none;
+}
+
+.flex{      = CENTRALIZAÇÃO DA PAGINA
+    display:flex;
+    flex-direction:column;
+    align-itemns:center;
+    justify-content: center;
+}
+
+
+
+2º SEGUNDO PASSO- 
+AS FONTES USADAS SERAO SETTADAS DIRETAMENTE DO PC SALVAS
+
+
+@font-face{
+    font-family: 'Ruhl';
+    src: url('/fonts/FrankRuhlLibre-Regular.ttf');
+
+}
+@font-face{
+    font-family: 'Ruhl Medium';
+    src: url('/fonts/FrankRuhlLibre-Medium.ttf');
+    
+}
+@font-face{
+    font-family: 'Vibes';
+    src: url('/fonts/GreatVibes-Regular.ttf');
+    
+}
+3º TERCEIRO PASSO- 
+começar settando as diferentes FONTES
+body {
+  font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out forwards;
+}
+h1 {
+  font-family: "Vibes", sans-serif;
+}
+
+DEPOIS NO BODY DO HTML SETTAR NOVA CLASSE HEADER MAIN-HEAD E NAV COM A LISTA ANCORADA
+
+<header class="main-head">
+      <nav>
+        <h1 id="logo">Elena Joy</h1>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        </header>
+
+        DEPOIS CRIAR OUTRA CLASSE POREM COM TAG SECTION E 2 DIV PRA DIVIDIR OS CONTEUDOS DA MAIN PAGE E GALERIA
+
+        <section class="hero"> 
+            <div class="hero-introduction flex">
+                <h2>
+                    Elena Joy <br />
+                    Photography
+                </h2>
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+                minima assumenda expedita similique quaerat maiores ab, itaque hic
+                explicabo eaque!
+                </p>
+          </div> 
+          <a href="#gallery">Gallery</a>   GALERIA ONDE FICARAO AS IMAGENS
+            <div class="hero-images"> DIV DAS IMAGENS
+                <img
+                class="hero-elena"
+                src="./img/elena-joy.png"
+                alt="picture of elena joy"/>
+                <img src="./img/plant1.png" alt="" class="plant1 plant" />
+                <img src="./img/plant2.png" alt="" class="plant2 plant" />
+            </div>
+        </section>
+        
+
+PRINT PROGRESSO 1
+
+4º QUARTO PASSO- COLOCAR COR DE BLACK NO ELEMENTO a (ANCHOR).
+DEPOIS PARTIR PRA ESTILIZAÇÃO BARRA DE NAVEGAÇÃO 
+ /* NAV SECTION */
+
+
+
+.main-head { 2º PASSO  CLASSE USADA PARA PEGAR TODO FLEXBOX ONDE ESTA A NAV 
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
+}
+
+nav { 1° PASSO 
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+  padding: 2rem 0rem;
+}
+
+  #logo {
+  flex: 1 1 20rem;
+}
+.nav-links { 3° PASSO  ALINHAMENTO LINKS DA NAV,  ASSIM NAO IRA FUNCIONAR SEM ADICIONAR ESPAÇO
+                                                ENTRE  O LOGO E OS LINKS CM O ATRIBUTO : flex: 1 1 20rem;
+  display: flex;                                
+  justify-content: space-around;
+  flex: 1 1 20rem;
+}    
+
+
+4° PASSO 
+/* HERO SECTION */ ALINHAR CONTEUDO  PRINCIPAL DA PAGINA COM BARRA NAV 
+
+.hero{ 1° PASSO 
+min-height:90vh;
+width:95%;
+margin: 0 0 0 auto;
+display: flex;
+flex-wrap: wrap;
+}
+
+
+.hero-introduction {  POSICIONAMENTO TEXTO introduction 2° PASSO 
+  flex: 2 1 40rem; = 2 AQUI POR CAUSA DA IMAGEM GRANDE DEMAIS 
+  text-align: center;
+}
+.hero-introduction p { ESPAÇAMENTO PARAGRAFO DA INTRO
+  padding: 5rem 10rem;
+  color: var(--gray-text);
+}
+.hero-introduction h2 { ESPAÇAMENTO  H2
+  padding-top: 3rem;
+}
+.hero-introduction a { ESPAÇAMENTO  ANCHOR/TEXTO CM GALLERY E BORDA 
+  padding: 2rem 8rem;
+  border: 3px solid black;
+  margin-bottom: 4rem;
+}
+
+.hero-images { POSICIONAMENTO IMAGEM ELENA 3° PASSO 
+  flex: 1 1 40rem;
+  background: linear-gradient(#dad8dd, #dad1d4); = COR DE FUNDO
+  position: relative; POSITION RELATIVE AO POSITION ABSOLUTE A SEGUIR DAS  IMG PLANTAS
+  z-index: 1;
+}
+
+.hero-elena { 4° PASSO SERVE PARA NAO APERTAR A IMAGEM
+  width: 100%;
+  height: 100%;
+  object-fit: cover; SERVE PARA NAO APERTAR A IMAGEM
+}
+
+
+ 5° PASSO -HTML ADD MAIS 2 IMAGENS E CLASSES DAS PLANTAS
+IMAGENS ADD NO HTML
+ <img src="./img/plant1.png" alt="" class="plant1 plant" />
+          <img src="./img/plant2.png" alt="" class="plant2 plant" />
+        </div>
+
+.plant {
+  position: absolute;= FICA POSICIONAMENTO ABSOLUTE AO POSITION RELATIVE ACIMA DA CLASSE HERO.IMAGES
+  bottom: 0;
+  left: -20%;
+  z-index: -1; =COLOCA NO FUNDO
+  transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
+plant-shake 2.5s infinite ease alternate-reverse 2s;
+  transform-origin: bottom;
+  max-height: 80%;
+}
+.plant2 {
+  left: 40%;
+}
+
+SERÁ ADD overflow hidden; A CLASSE HERO  SOBRESCREVENDO DE FORMA ESCONDIDA A IMAGEM NA BOX
+
+.hero {
+  min-height: 90vh;
+  width: 95%;
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+6° PASSO PARTE DAS ANIMAÇÕES DAS IMAGENS DAS PLANTAS
+
+/*ANIMATIONS */
+
+@keyframes opening { 1º PASSO SETTAR ANIMAÇÃO
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+body {              2°PASSO SETTAR CONFIG DA ANIMAÇÃO
+  font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out forwards; DURAÇAO E AÇAO
+}
+
+@keyframes plant-entrance {
+  from {
+    transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+  }
+  to {
+    transform: translateY(0%) rotateZ(0deg) rotateX(0deg);
+  }
+}
+.plant {
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  z-index: -1;
+  transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg); CONFIG DA ANIMAÇÃO TRANSFORM/TRASNLATE E ROTATETE
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards, CONFIG DA ANIMAÇÃO PLANT ENTRACE
+                                             DLAY
+  plant-shake 2.5s infinite ease alternate-reverse 2s; CONFIG DA ANIMAÇÃO PLANT SHAKE
+  transform-origin: bottom; PONTO DE ORIGEM ANIMAÇAO
+  max-height: 80%;
+}
+
+
+
+@keyframes plant-shake {
+  from {
+    transform: rotateZ(-5deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+
+
+7ºPASSO MEDIA QUERY /burguer section=MINI MENU
+
+
+@media screen and (max-width: 842px) {-= QUANDO CHEGAR 842 PX VAI SETTAR ESSAS CONFIG
+  .hero {
+    width: 100%;
+  }
+  .hero-introduction p {
+    padding: 5rem 3rem;
+  }
+  /* BURGER THING */
+  .burger {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+  .burger span { 1º Passo 
+    padding: 0.2rem 2rem; novo ESPAÇAMENTO
+    background: var(--gray-text); COR FUNDO
+    margin: 0.5rem 0rem;
+    display: block;                 
+
+    transition: all 0.5s ease;
+  }
+  .nav-links a {  2º Passo 
+    color: white;
+    font-size: var(--header3);
+    text-decoration: underline;
+  }
+  .nav-links { 3º Passo 
+    background: var(--background-color); COR FUNDO
+    width: 100%;
+    height: 100%;
+    position: fixed; = GRUDADA
+    top: 0; = EMPURRA PRO TOPO
+    left: 100%;= EMPURRA PRA DIREITA 
+    flex-direction: column; - ALINHAMENTO EM COLUNA NA PAGINA
+    align-items: center;
+    transition: transform 1s ease;
+  }
+
+APOS CONFIGURAR NO CSS ADD ID AO BURGER NO HTML
+
+
+
+
+
